@@ -142,6 +142,7 @@ function wonderluxe_scripts() {
 	wp_style_add_data( 'wonderluxe-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'wonderluxe-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wonderluxe-slider', get_template_directory_uri() . '/js/custom_slider.js', array('jquery') );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -210,4 +211,74 @@ function add_last_nav_item($items, $args) {
 		return $items .= '<li><a href="#" role="button"><img src="' . home_url("/") . 'wp-content/uploads/2024/09/camera_2.png" /></a></li>';
 	
 	return $items;
+}
+
+add_shortcode('custom_slider', 'add_slider_shortcode');
+
+function add_slider_shortcode() {
+	return '
+		<div class="slider-container">
+			<div class="slider-wrapper">
+				<div class="slide">
+					<section class="wp-block-group about-us-container-small home-giveaways-section mb-5-5rem is-nowrap is-layout-flex wp-container-core-group-is-layout-5 wp-block-group-is-layout-flex">
+						<div class="wp-block-columns w-max about-us-section pl-2rem home-slider is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex">
+							<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+								<h2 class="wp-block-heading  secondary-title text-center">Destination</h2>
+								<p class="container desc my-2rem">Forem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. </p>
+								<p class="container desc my-2rem">Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
+								<p class="container desc my-2rem">Class aptent taciti sociosqu ad. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna.</p>
+							</div>
+							<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+								<figure class="wp-block-image size-full">
+									<img decoding="async" width="860" height="754" src="' . home_url('/') . 'wp-content/uploads/2024/09/homepage-4.png" alt="" class="wp-image-357">
+								</figure>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="slide">
+					<section class="wp-block-group about-us-container-small home-giveaways-section mb-5-5rem is-nowrap is-layout-flex wp-container-core-group-is-layout-5 wp-block-group-is-layout-flex">
+						<div class="wp-block-columns w-max about-us-section pl-2rem home-slider is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex">
+							<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+								<h2 class="wp-block-heading  secondary-title text-center">Destination</h2>
+								<p class="container desc my-2rem">Forem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. </p>
+								<p class="container desc my-2rem">Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
+								<p class="container desc my-2rem">Class aptent taciti sociosqu ad. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna.</p>
+							</div>
+							<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+								<figure class="wp-block-image size-full">
+									<img decoding="async" width="860" height="754" src="' . home_url('/') . 'wp-content/uploads/2024/09/homepage-4.png" alt="" class="wp-image-357">
+								</figure>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="slide">
+					<section class="wp-block-group about-us-container-small home-giveaways-section mb-5-5rem is-nowrap is-layout-flex wp-container-core-group-is-layout-5 wp-block-group-is-layout-flex">
+						<div class="wp-block-columns w-max about-us-section pl-2rem home-slider is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex">
+							<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+								<h2 class="wp-block-heading  secondary-title text-center">Destination</h2>
+								<p class="container desc my-2rem">Forem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. </p>
+								<p class="container desc my-2rem">Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. </p>
+								<p class="container desc my-2rem">Class aptent taciti sociosqu ad. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna.</p>
+							</div>
+							<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+								<figure class="wp-block-image size-full">
+									<img decoding="async" width="860" height="754" src="' . home_url('/') . 'wp-content/uploads/2024/09/homepage-4.png" alt="" class="wp-image-357">
+								</figure>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<button class="slider-arrow left-arrow">
+				<img src="' . get_template_directory_uri() . '/images/left-arrow.svg" />
+			</button>
+
+			<button class="slider-arrow right-arrow">
+				<img src="' . get_template_directory_uri() . '/images/right-arrow.svg" />
+			</button>
+		</div>
+	';
 }

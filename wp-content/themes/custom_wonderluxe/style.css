@@ -89,6 +89,7 @@ html {
  */
 body {
 	margin: 0;
+	background: url(images/leaf-rotated.png) left -14rem top -12rem no-repeat, url(images/leaf.png) right -14rem bottom 9rem no-repeat, #F9F5EC !important;
 }
 
 /**
